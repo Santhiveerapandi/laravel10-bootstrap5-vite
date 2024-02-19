@@ -21,6 +21,40 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
+# Step to access code
+```
+git clone https://github.com/Santhiveerapandi/laravel10-bootstrap5-vite.git
+composer install --ignore-platform-reqs
+npm install
+composer run post-autoload-dump
+composer run post-update-cmd
+composer run post-root-package-install
+composer run post-create-project-cmd
+```
+.env file ---- Database settings
+
+DB_CONNECTION=mysql
+
+DB_HOST=127.0.0.1
+
+DB_PORT=3306
+
+DB_DATABASE=laravel
+
+DB_USERNAME=root
+
+DB_PASSWORD=
+
+QUEUE_CONNECTION=database
+
+```
+php artisan migrate
+php artisan serve
+npm run dev
+php artisan queue:work --timeout=0
+```
+
+# From Creation Point 
 ## Bootstrap Scaffolding in laravel 10
 
 ### Step 1: Install Laravel Project
