@@ -24,6 +24,7 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 # Step to access code
 ```
 git clone https://github.com/Santhiveerapandi/laravel10-bootstrap5-vite.git
+cd laravel10-bootstrap5-vite
 composer install --ignore-platform-reqs
 npm install
 composer run post-autoload-dump
