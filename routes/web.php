@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    dispatch(new \App\Jobs\SendEmailJob());
     return view('welcome');
 });
 Route::resource('uploader', ExcelImportController::class);

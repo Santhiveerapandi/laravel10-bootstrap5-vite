@@ -46,7 +46,7 @@ DB_USERNAME=root
 
 DB_PASSWORD=
 
-QUEUE_CONNECTION=database
+QUEUE_CONNECTION=redis
 
 ```
 php artisan migrate
@@ -299,4 +299,41 @@ export default defineConfig({
 
 ```
 > npm run build
+```
+## Redis + Laravel Queue Management
+```
+windows 11
+composer require laravel/horizon --ignore-platform-reqs
+php artisan horizon:install
+
+Redis install:
+-------------
+ref: https://github.com/tporadowski/redis/releases
+download redis.msi
+
+redis GUI: 
+----------
+ref:https://www.npmjs.com/package/redis-commander
+
+npm install -g redis-commander
+redis-commander
+
+composer require predis/predis --ignore-platform-reqs
+php artisan make:mail SendTestEmail --markdown=emails.testwelcomeemail
+php artisan make:job SendEmailJob
+handle()
+{
+    \Mail::to('chitrabe06@gmail.com')->send(new \App\Mail\SendTestEMail());
+}
+
+web.php
+-------
+Route::get('/', function () {
+    dispatch(new \App\Jobs\SendEmailJob());
+    return view('welcome');
+});
+
+//Send email through dispatch method in web.php
+php artisan queue:listen --timeout=0
+php artisan serve
 ```
